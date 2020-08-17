@@ -93,11 +93,11 @@ function TodoList({ filter }) {
     localStorage.setItem("jobList", JSON.stringify(newJobList));
   };
 
-  const handleDeleteAll = (e) => {
-    const newJobList = [];
+  const handleDeleteAll = () => {
+    const newJobList = jobList.filter((job) => job.finish === false);
 
     setJobList(newJobList);
-    localStorage.clear();
+    localStorage.setItem("jobList", JSON.stringify(newJobList));
   };
 
   return (
